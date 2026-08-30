@@ -58,14 +58,35 @@ file via `xlsxwriter`.
 
 ## Results
 
-<!-- TODO: fill in real numbers from your own runs. I have not run the strategies
-     or the model end-to-end, so I have not invented any performance figures. -->
+_Figures below are taken directly from the saved notebook outputs._
 
-- Momentum / value / equal-weight strategies: **TODO — add the portfolio output
-  (e.g. number of positions, example recommended-trades table, or any backtest
-  return you have).**
-- RandomForest forecaster: **TODO — add the precision score (and any other
-  metrics) you obtained on your test set.**
+**RandomForest forecaster** (`notebooks/ml-forecaster/ML Stock Predictor.ipynb`)
+
+Predicts next-period price direction from OHLC, volume, `changePercent` and VWAP,
+using `RandomForestClassifier(n_estimators=100, class_weight="balanced", min_samples_split=2, random_state=67)`.
+
+| Evaluation | Precision |
+|---|---|
+| Single train/test split (train on first ~20%, test on the remainder) | **0.588** |
+| Walk-forward backtest (expanding window, `start=2500`, `step=100`) | **0.417** |
+
+The walk-forward backtest (~0.42) is the realistic out-of-sample figure — below
+0.5, i.e. on this feature set the model does not reliably beat chance. That's the
+honest takeaway; the single-split number flatters the model.
+
+**Strategy screeners** — each produces a recommended portfolio with per-stock
+share counts for a chosen portfolio value (not a backtested return series):
+
+- **Momentum** — a 50-stock *high-quality momentum* (HQM) portfolio, scored across
+  1-year / 6-month / 3-month / 1-month returns (example run sized to a $59,000 book).
+- **Value** — a 50-stock *robust value* (RV) portfolio, scored on a composite of
+  P/E, P/B, EV/EBITDA and EV/GP (example run sized to a $1,000,000 book).
+- **Equal-weight index fund** — shares of every S&P 500 constituent needed for an
+  equal-weight portfolio at a given value, exported to Excel.
+
+> Note: market data comes from the IEX Cloud / FinancialModelingPrep sandbox
+> (free) tiers, so specific tickers and prices in the saved outputs are
+> illustrative rather than live.
 
 ## Running locally
 
