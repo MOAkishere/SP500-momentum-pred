@@ -27,11 +27,12 @@ forecaster extends that foundation into supervised machine learning.
 - Market data is pulled from the **IEX Cloud API** using a **sandbox** token
   (randomly generated, free-to-call data — not suitable for real trading).
 - The token lives in a local `sec.py` (`IEX_CLOUD_API_TOKEN = '...'`) which is
-  **git-ignored** so it is never committed. Create your own before running:
+  **git-ignored** so it is never committed. A template is provided — copy it and
+  paste your own token before running:
 
-  ```python
-  # sec.py
-  IEX_CLOUD_API_TOKEN = 'your_sandbox_token_here'
+  ```bash
+  cd notebooks/sp500-strategies
+  cp sec.py.example sec.py   # then edit IEX_CLOUD_API_TOKEN in sec.py
   ```
 - The S&P 500 constituent lists (`SP500.csv`, `sp_500_stocks.csv`) live alongside
   the notebooks that read them.

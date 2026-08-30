@@ -1,0 +1,8 @@
+# Template for sec.py — copy this file to `sec.py` in the same directory and
+# paste your own IEX Cloud token. `sec.py` is git-ignored so your real token is
+# never committed. A free IEX Cloud *sandbox* token (prefix "Tpk_") is enough to
+# run the notebooks; sandbox data is randomly generated and non-tradeable.
+#
+#   cp sec.py.example sec.py   # then edit the value below in sec.py
+
+IEX_CLOUD_API_TOKEN = 'YOUR_IEX_SANDBOX_TOKEN_HERE'
