@@ -1,0 +1,14 @@
+# Generated from the actual imports in the notebooks (third-party packages only).
+# Unpinned on purpose — I have not verified specific versions. TODO: pin versions
+# once tested against a known-good environment (e.g. `pip freeze`).
+
+numpy
+pandas
+requests
+scipy
+xlsxwriter
+scikit-learn        # used only by notebooks/ml-forecaster (RandomForest)
+
+# Note: notebooks/archive/MATH2603_Lab9_ANN_Backprop.ipynb additionally imports
+# matplotlib. It is unrelated coursework kept in archive/, so it is not listed as a
+# core dependency. Add `matplotlib` if you intend to run that notebook.

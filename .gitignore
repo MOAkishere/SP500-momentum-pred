@@ -1,0 +1,29 @@
+# --- Secrets (NEVER commit) ---
+.env
+# sec.py holds IEX_CLOUD_API_TOKEN
+sec.py
+secrets.py
+
+# --- Data & generated outputs ---
+data/
+*.pkl
+# generated outputs, e.g. "recommended trades.xlsx"
+*.xlsx
+
+# --- Python ---
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# --- Jupyter ---
+.ipynb_checkpoints/
+
+# --- Virtual environments ---
+.venv/
+venv/
+env/
+ENV/
+
+# Note: the small S&P 500 constituent lists (SP500.csv, sp_500_stocks.csv) are
+# intentionally NOT ignored -- they are the reference inputs the notebooks read.
+# If you prefer to keep all CSVs out of git, add *.csv here.
